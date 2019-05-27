@@ -1,5 +1,5 @@
-#ifndef QUADRADO_H
-#define QUADRADO_H
+#ifndef CAVERNA_H
+#define CAVERNA_H
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -9,35 +9,15 @@
 
 class Caverna{
 private:
-    //Quadrado quadrados_[][]; COM ERRO
+    Quadrado quadrado_;
 public:
     Caverna();
-    void carregar(std::ifstream arquivo);
-    Quadrado::Quadrado getVizinhos(Quadrado::Quadrado quadrado); //ERRO
-    Quadrado::Quadrado getInicio(Quadrado::Quadrado quadrado); //ERRO
-    Quadrado::Quadrado getFim(Quadrado::Quadrado quadrado); //ERRO
+    void carregar();
+    Quadrado getVizinhos(Quadrado quadrado); //ERRO
+    Quadrado getInicio(Quadrado quadrado); //ERRO
+    Quadrado getFim(Quadrado quadrado);  //ERRO
     void resetar();
     std::string toString();
 };
 
-Caverna::Caverna(){}
-
-void carregar(std::ifstream arquivo){
-
-}
-Quadrado::Quadrado getVizinhos(Quadrado::Quadrado quadrado){
-
-} //ERRO
-Quadrado::Quadrado getInicio(Quadrado::Quadrado quadrado){
-
-} //ERRO
-Quadrado::Quadrado getFim(Quadrado::Quadrado quadrado){
-
-} //ERRO
-void resetar(){
-
-}
-std::string toString(){
-    
-}
 #endif
