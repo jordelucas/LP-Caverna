@@ -1,5 +1,6 @@
 #ifndef CAVERNA_H
 #define CAVERNA_H
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -9,16 +10,21 @@
 
 class Caverna{
 private:
-    Quadrado *quadrado_;
+    Quadrado *** caverna_;
+    int qtdLinhas;
+    int QtdColunas;
+
 public: 
     Caverna();
-    void carregar();
+    ~Caverna();
+    void carregar(std::ifstream &);
+    void toString();
+    /*
     Quadrado getVizinhos(Quadrado quadrado); //ERRO
     Quadrado getInicio(Quadrado quadrado); //ERRO
     Quadrado getFim(Quadrado quadrado);  //ERRO
-    int getQuantLinhas();
     void resetar();
-    std::string toString();
+    */
 };
 
 #endif
