@@ -52,7 +52,7 @@ Quadrado* Caverna::getFim(){
     return nullptr;
 } 
 
-
+/*
 Quadrado* Caverna::getVizinhos(Quadrado quadrado){
     
     vector v(1);
@@ -63,7 +63,7 @@ Quadrado* Caverna::getVizinhos(Quadrado quadrado){
     v.~vector();
     return nullptr;
 } 
-/*
+
 void Caverna::resetar(){
 
 }
