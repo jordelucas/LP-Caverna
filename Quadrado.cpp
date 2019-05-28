@@ -8,6 +8,7 @@
 
 Quadrado::Quadrado(int linha, int coluna, char tipo)
 : linha_(linha), coluna_(coluna), tipo_(tipo) {}
+
 int Quadrado::getLinha(){
     return linha_;
 }

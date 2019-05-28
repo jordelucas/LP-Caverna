@@ -9,13 +9,14 @@
 
 class Caverna{
 private:
-    Quadrado quadrado_;
-public:
+    Quadrado *quadrado_;
+public: 
     Caverna();
     void carregar();
     Quadrado getVizinhos(Quadrado quadrado); //ERRO
     Quadrado getInicio(Quadrado quadrado); //ERRO
     Quadrado getFim(Quadrado quadrado);  //ERRO
+    int getQuantLinhas();
     void resetar();
     std::string toString();
 };

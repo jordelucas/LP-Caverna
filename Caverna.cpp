@@ -3,28 +3,36 @@
 #include <string>
 #include <cstdlib>
 
-#include "Quadrado.h"
 #include "Caverna.h"
 
-Caverna::Caverna(): quadrado_(){}
+Caverna::Caverna(){}
 
-void carregar(){
+void Caverna::carregar(){
     
 }
-Quadrado getVizinhos(Quadrado quadrado){
-    
-} //ERRO
-Quadrado getInicio(Quadrado quadrado){
+Quadrado Caverna::getVizinhos(Quadrado quadrado){
+    int qtdLinhas = quadrado_->getLinha();
+    quadrado_ = new Quadrado**[qtdLinhas];
+} 
 
-} //ERRO
-Quadrado getFim(Quadrado quadrado){
+Quadrado Caverna::getInicio(Quadrado quadrado){
 
-} //ERRO
-void resetar(){
+} 
+
+Quadrado Caverna::getFim(Quadrado quadrado){
+
+} 
+
+void Caverna::resetar(){
 
 }
-std::string toString(){
-    for (size_t i = 0; i < count; i++)
+
+int Caverna::getQuantLinhas(){
+
+}
+
+std::string Caverna::toString(){
+    for (size_t i = 0; i < 0/*Parada*/; i++)
     {
         /* code */
     }
