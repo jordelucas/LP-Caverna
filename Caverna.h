@@ -7,6 +7,7 @@
 #include <cstdlib>
 
 #include "Quadrado.h"
+#include "vector.h"
 
 class Caverna{
 private:
@@ -21,8 +22,8 @@ public:
     void toString();
     Quadrado* getInicio();
     Quadrado* getFim();
+    Quadrado* getVizinhos(Quadrado quadrado);
     /*
-    Quadrado getVizinhos(Quadrado quadrado); //ERRO
     void resetar();
     */
 };

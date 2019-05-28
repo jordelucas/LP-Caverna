@@ -52,12 +52,18 @@ Quadrado* Caverna::getFim(){
     return nullptr;
 } 
 
-/*
-Quadrado Caverna::getVizinhos(Quadrado quadrado){
-    int qtdLinhas = quadrado_->getLinha();
-    quadrado_ = new Quadrado**[qtdLinhas];
-} 
 
+Quadrado* Caverna::getVizinhos(Quadrado quadrado){
+    
+    vector v(1);
+    if(caverna_[quadrado.getLinha()][quadrado.getColuna()-1]->getTipo() == 0){
+        v1
+    }
+
+    v.~vector();
+    return nullptr;
+} 
+/*
 void Caverna::resetar(){
 
 }
