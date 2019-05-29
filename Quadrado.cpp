@@ -1,10 +1,10 @@
 #include "Quadrado.h"
 
 Quadrado::Quadrado() 
-: linha_(-1), coluna_(-1), tipo_(-1) {}
+: linha_(-1), coluna_(-1), tipo_(-1), anterior_(nullptr) {}
 
 Quadrado::Quadrado(int linha, int coluna, int tipo)
-: linha_(linha), coluna_(coluna), tipo_(tipo) {}
+: linha_(linha), coluna_(coluna), tipo_(tipo), anterior_(nullptr) {}
 
 int Quadrado::getLinha() {
     return linha_;
@@ -16,6 +16,14 @@ int Quadrado::getColuna() {
 
 int Quadrado::getTipo() {
     return tipo_;
+}
+
+Quadrado* Quadrado::getAnterior() {
+    return anterior_;
+}
+
+void Quadrado::setAnterior() {
+    
 }
 
 char Quadrado::toString(){

@@ -1,9 +1,9 @@
 #ifndef SONDAS_FILA_H
 #define SONDAS_FILA_H
+
 #include <iostream>
 #include <string>
 #include <cstdlib>
-#include <queue>
 
 #include "Quadrado.h"
 #include "Caverna.h"
@@ -21,7 +21,6 @@ public:
     bool estaFinalizado();
     std::string getCaminho();
     Quadrado passo();
-
 };
 
 #endif // !SONDAS_FILA_H

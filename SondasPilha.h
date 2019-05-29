@@ -1,9 +1,9 @@
 #ifndef SONDAS_PILHA_H
 #define SONDAS_PILHA_H
+
 #include <iostream>
 #include <string>
 #include <cstdlib>
-#include <stack>
 
 #include "Quadrado.h"
 #include "Caverna.h"
@@ -13,6 +13,8 @@ class SondasPilha
 {
 private:
     Caverna caverna_;
+    Stack<Quadrado> pilha;
+
 public:
     SondasPilha(Caverna caverna);
     ~SondasPilha();
