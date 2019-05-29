@@ -14,9 +14,9 @@ void esvaziarCaminhos(){
 }
 
 bool possuiCaminhos(){
-
+    return true;
 }
-
+/*
 Quadrado proximoCaminho(){
 
 }
@@ -32,3 +32,4 @@ std::string getCaminho(){
 Quadrado passo(){
 
 }
+*/

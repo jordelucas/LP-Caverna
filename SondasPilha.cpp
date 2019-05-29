@@ -15,11 +15,11 @@ void SondasPilha::esvaziarCaminhos(){
 
 
 bool SondasPilha::possuiCaminhos(){
-
+    return true;
 }
-
+/*
 Quadrado SondasPilha::proximoCaminho(){
-
+    return ;
 }
 
 bool SondasPilha::estaFinalizado(){
@@ -32,4 +32,4 @@ std::string SondasPilha::getCaminho(){
 
 Quadrado SondasPilha::passo(){
 
-}
+}*/

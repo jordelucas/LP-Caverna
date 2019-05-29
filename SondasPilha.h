@@ -7,6 +7,7 @@
 
 #include "Quadrado.h"
 #include "Caverna.h"
+#include "Stack.h"
 
 class SondasPilha
 {
