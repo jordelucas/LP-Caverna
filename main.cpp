@@ -23,7 +23,20 @@ int main(){
     std::cout << c.getFim()->getLinha() << " ";
     std::cout << c.getFim()->getColuna() << "\n";
 
-    vector v1 = c.getVizinhos(*c.getInicio());
+    //vector v1 = c.getVizinhos(*c.getInicio());
+
+    //Quadrado * vizinhos;
+    //vizinhos = c.getVizinhos(vizinhos, *c.getInicio());
+    
+    Quadrado * vizinhos = new Quadrado[4];
+    c.getVizinhos(vizinhos, *c.getInicio());
+    std::cout << vizinhos[0].toString();
+    std::cout << vizinhos[1].toString();
+    std::cout << vizinhos[2].toString();
+    std::cout << vizinhos[3].toString();
+    delete [] vizinhos;
+
+    // /delete vizinhos;
     //vector v1 = c.getVizinhos(*c.getInicio());
     /*std::cout << v1.at(0).getTipo() << "\n";
     std::cout << v1.at(1).getTipo() << "\n";

@@ -11,7 +11,7 @@ class Caverna{
 private:
     Quadrado *** caverna_;
     int qtdLinhas;
-    int QtdColunas;
+    int qtdColunas;
 
 public: 
     Caverna();
@@ -20,7 +20,8 @@ public:
     void toString();
     Quadrado* getInicio();
     Quadrado* getFim();
-    vector& getVizinhos(Quadrado quadrado);
+    Quadrado* getVizinhos(Quadrado *, Quadrado);
+
     /*
     void resetar();
     */

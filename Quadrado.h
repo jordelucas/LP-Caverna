@@ -9,6 +9,7 @@ class Quadrado{
 
     public: 
         Quadrado(int linha, int coluna, int tipo);
+        Quadrado();
         int getLinha();
         int getColuna();
         int getTipo();

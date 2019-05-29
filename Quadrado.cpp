@@ -1,5 +1,8 @@
 #include "Quadrado.h"
 
+Quadrado::Quadrado() 
+: linha_(-1), coluna_(-1), tipo_(-1) {}
+
 Quadrado::Quadrado(int linha, int coluna, int tipo)
 : linha_(linha), coluna_(coluna), tipo_(tipo) {}
 
