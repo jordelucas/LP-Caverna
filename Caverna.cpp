@@ -87,9 +87,4 @@ void Caverna::toString(){
 void Caverna::resetar(){
 
 }
-
-int Caverna::getQuantLinhas(){
-
-}
-
 */

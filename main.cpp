@@ -15,18 +15,11 @@ int main(){
     c.carregar(arq_in);
     arq_in.close();
 
-    //c.toString();
+    c.toString();
 
-    std::cout << c.getInicio()->getLinha() << " ";
-    std::cout << c.getInicio()->getColuna() << "\n";
-
-    std::cout << c.getFim()->getLinha() << " ";
-    std::cout << c.getFim()->getColuna() << "\n";
-
-    //vector v1 = c.getVizinhos(*c.getInicio());
-
-    //Quadrado * vizinhos;
-    //vizinhos = c.getVizinhos(vizinhos, *c.getInicio());
+    std::cout << "\n";
+    std::cout << "Inicio: " << c.getInicio()->getLinha() << " " << c.getInicio()->getColuna() << "\n";
+    std::cout << "Fim: " << c.getFim()->getLinha() << " " << c.getFim()->getColuna() << "\n\n";
     
     Quadrado * vizinhos = new Quadrado[4];
     c.getVizinhos(vizinhos, *c.getInicio());
@@ -34,15 +27,8 @@ int main(){
     std::cout << vizinhos[1].toString();
     std::cout << vizinhos[2].toString();
     std::cout << vizinhos[3].toString();
+    std::cout << "\n";
     delete [] vizinhos;
-
-    // /delete vizinhos;
-    //vector v1 = c.getVizinhos(*c.getInicio());
-    /*std::cout << v1.at(0).getTipo() << "\n";
-    std::cout << v1.at(1).getTipo() << "\n";
-    std::cout << v1.at(2).getTipo() << "\n";
-    std::cout << v1.at(3).getTipo() << "\n";*/
-
     //c.~Caverna();
     return 0;
 }

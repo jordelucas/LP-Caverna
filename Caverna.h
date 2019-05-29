@@ -4,7 +4,6 @@
 #include <iostream>
 #include <fstream>
 
-#include "vector.h"
 #include "Quadrado.h"
 
 class Caverna{
