@@ -3,11 +3,9 @@
 
 #include <iostream>
 #include <fstream>
-#include <string>
-#include <cstdlib>
 
-#include "Quadrado.h"
 #include "vector.h"
+#include "Quadrado.h"
 
 class Caverna{
 private:
@@ -22,7 +20,7 @@ public:
     void toString();
     Quadrado* getInicio();
     Quadrado* getFim();
-    Quadrado* getVizinhos(Quadrado quadrado);
+    vector& getVizinhos(Quadrado quadrado);
     /*
     void resetar();
     */

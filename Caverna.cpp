@@ -52,18 +52,27 @@ Quadrado* Caverna::getFim(){
     return nullptr;
 } 
 
+vector& Caverna::getVizinhos(Quadrado quadrado){
+    int qtd = 0;
+
+    vector volasd(qtd);
 /*
-Quadrado* Caverna::getVizinhos(Quadrado quadrado){
-    
-    vector v(1);
     if(caverna_[quadrado.getLinha()][quadrado.getColuna()-1]->getTipo() == 0){
-        v1
+        v.insert(qtd++, caverna_[quadrado.getLinha()][quadrado.getColuna()-1]);
     }
-
-    v.~vector();
-    return nullptr;
-} 
-
+    if(caverna_[quadrado.getLinha()][quadrado.getColuna()-1]->getTipo() == 0){
+        v.insert(qtd++, caverna_[quadrado.getLinha()][quadrado.getColuna()+1]);
+    }
+    if((quadrado.getLinha() - qtdLinhas) >= 0 && caverna_[quadrado.getLinha()-qtdLinhas][quadrado.getColuna()]->getTipo() == 0){
+        v.insert(qtd++, caverna_[quadrado.getLinha()][quadrado.getColuna()]);
+    }
+    if((quadrado.getLinha() + qtdLinhas) >= (qtdLinhas-1) && caverna_[quadrado.getLinha()+qtdLinhas][quadrado.getColuna()]->getTipo() == 0){
+        v.insert(qtd, caverna_[quadrado.getLinha()][quadrado.getColuna()+1]);
+    }
+*/
+    return volasd;
+}
+/*
 void Caverna::resetar(){
 
 }

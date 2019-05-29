@@ -3,6 +3,7 @@
 #include <fstream>
 #include <cstdlib>
 
+#include "Quadrado.h"
 #include "Caverna.h"
 
 int main(){
@@ -21,6 +22,13 @@ int main(){
 
     std::cout << c.getFim()->getLinha() << " ";
     std::cout << c.getFim()->getColuna() << "\n";
+
+    vector v1 = c.getVizinhos(*c.getInicio());
+    //vector v1 = c.getVizinhos(*c.getInicio());
+    /*std::cout << v1.at(0).getTipo() << "\n";
+    std::cout << v1.at(1).getTipo() << "\n";
+    std::cout << v1.at(2).getTipo() << "\n";
+    std::cout << v1.at(3).getTipo() << "\n";*/
 
     //c.~Caverna();
     return 0;

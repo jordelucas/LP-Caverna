@@ -1,11 +1,6 @@
 #ifndef QUADRADO_H
 #define QUADRADO_H
 
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <cstdlib>
-
 class Quadrado{
     private:
         int linha_;
