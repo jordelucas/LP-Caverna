@@ -28,7 +28,6 @@ void Stack<T>::clear(){
     {
         return;
     }
-
     data.clear();
     
 }

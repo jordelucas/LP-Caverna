@@ -11,18 +11,18 @@
 class SondasPilha
 {
 private:
-    Caverna caverna_;
-    Stack<Quadrado> pilha;
+    Caverna * caverna_;
+    Stack<Quadrado> * pilha;
 
 public:
-    SondasPilha(Caverna caverna);
+    SondasPilha(Caverna * caverna);
     ~SondasPilha();
     void esvaziarCaminhos();
     bool possuiCaminhos();
-    Quadrado * proximoCaminho();
+    Quadrado proximoCaminho();
     bool estaFinalizado();
     void getCaminho();
-    Quadrado * passo();
+    Quadrado passo();
     void encontrarCaminho();
 };
 #endif // !SONDAS_PILHA_H

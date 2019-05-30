@@ -1,4 +1,5 @@
 #include "Quadrado.h"
+#include <iostream>
 
 Quadrado::Quadrado() 
 : linha_(-1), coluna_(-1), tipo_(-1), anterior_(nullptr) {}
@@ -24,12 +25,13 @@ Quadrado* Quadrado::getAnterior() {
 
 void Quadrado::setAnterior(Quadrado quadrado) {
     anterior_ = &quadrado;
+    std::cout << "entrou ";
 }
 
 char Quadrado::toString(){
     switch (getTipo()){
         case 0:
-            return '_';
+            return '-';
             break;
 
         case 1:

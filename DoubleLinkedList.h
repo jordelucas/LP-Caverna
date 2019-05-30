@@ -44,7 +44,8 @@ template<typename Item>
 Node<Item>::Node(){}
 
 template<typename Item>
-DoubleLinkedList<Item>::DoubleLinkedList(){}
+DoubleLinkedList<Item>::DoubleLinkedList() : head_(nullptr), last_(nullptr) {
+}
 
 template<typename Item>
 void DoubleLinkedList<Item>::push_back(Item item){

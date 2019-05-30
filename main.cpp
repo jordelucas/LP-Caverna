@@ -8,30 +8,27 @@
 #include "SondasPilha.h"
 
 int main(){
-    std::cout << "Inicio do programa\n";
+    Caverna * cv;
     Caverna caverna;
-    std::cout << "Criou a caverna\n";
 
+    cv = &caverna;
     std::ifstream arq_in;
-
-    arq_in.open("teste.txt");
-    std::cout << "Abriu o arquivo\n";
-
+    arq_in.open("caverna-1.txt");
     caverna.carregar(arq_in);
-    std::cout << "Carregou a caverna\n\n";
-
+    arq_in.close();
     caverna.toString();
 
-    std::cout << "\n";
-
-    arq_in.close();
-    std::cout << "Fechou a caverna\n";
-
-    SondasPilha pilha(caverna);
-    std::cout << "Criou a pilha passando a caverna\n\n";
+    SondasPilha pilha(cv);
+    //std::cout << "ois\n\n";
 
     pilha.encontrarCaminho();
-    std::cout << "Buscou o caminho\n";
+
+    //caverna.~Caverna();
+
+    return 0;
+}
+    //pilha.encontrarCaminho();
+    //std::cout << "Buscou o caminho\n";
 /*
     Caverna c;
 
@@ -59,4 +56,3 @@ int main(){
     return 0;
 
 */
-}
