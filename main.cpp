@@ -5,8 +5,34 @@
 
 #include "Quadrado.h"
 #include "Caverna.h"
+#include "SondasPilha.h"
 
 int main(){
+    std::cout << "Inicio do programa\n";
+    Caverna caverna;
+    std::cout << "Criou a caverna\n";
+
+    std::ifstream arq_in;
+
+    arq_in.open("teste.txt");
+    std::cout << "Abriu o arquivo\n";
+
+    caverna.carregar(arq_in);
+    std::cout << "Carregou a caverna\n\n";
+
+    caverna.toString();
+
+    std::cout << "\n";
+
+    arq_in.close();
+    std::cout << "Fechou a caverna\n";
+
+    SondasPilha pilha(caverna);
+    std::cout << "Criou a pilha passando a caverna\n\n";
+
+    pilha.encontrarCaminho();
+    std::cout << "Buscou o caminho\n";
+/*
     Caverna c;
 
     std::ifstream arq_in;
@@ -31,4 +57,6 @@ int main(){
     delete [] vizinhos;
     //c.~Caverna();
     return 0;
+
+*/
 }

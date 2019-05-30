@@ -2,6 +2,7 @@
 #define SONDAS_PILHA_H
 
 #include <iostream>
+#include <cstdlib>
 
 #include "Quadrado.h"
 #include "Caverna.h"
@@ -18,9 +19,10 @@ public:
     ~SondasPilha();
     void esvaziarCaminhos();
     bool possuiCaminhos();
-    Quadrado proximoCaminho();
+    Quadrado * proximoCaminho();
     bool estaFinalizado();
-    std::string getCaminho();
-    Quadrado passo();
+    void getCaminho();
+    Quadrado * passo();
+    void encontrarCaminho();
 };
 #endif // !SONDAS_PILHA_H

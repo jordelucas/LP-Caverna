@@ -23,7 +23,7 @@ Quadrado* Quadrado::getAnterior() {
 }
 
 void Quadrado::setAnterior(Quadrado quadrado) {
-
+    anterior_ = &quadrado;
 }
 
 char Quadrado::toString(){
