@@ -22,8 +22,8 @@ Quadrado* Quadrado::getAnterior() {
     return anterior_;
 }
 
-void Quadrado::setAnterior() {
-    
+void Quadrado::setAnterior(Quadrado quadrado) {
+
 }
 
 char Quadrado::toString(){

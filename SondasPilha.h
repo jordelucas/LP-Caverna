@@ -2,8 +2,6 @@
 #define SONDAS_PILHA_H
 
 #include <iostream>
-#include <string>
-#include <cstdlib>
 
 #include "Quadrado.h"
 #include "Caverna.h"
