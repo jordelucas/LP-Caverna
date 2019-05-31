@@ -58,40 +58,41 @@ Quadrado SondasPilha::passo(){
 
     std::cout << "Saga dos vizinhos\n";
     bool empty = true;
-    Quadrado * pont = new Quadrado[4];
+    Quadrado * array = new Quadrado[4];
 
-    std::cout << "Vai entrar\n";
-    caverna_->getVizinhos(pont, posicaoAtual);
-    std::cout << "Success!!!\n";
+    caverna_->getVizinhos(array, pontAtual);
 
-    std::cout << "força, foco e fé!\n\n";
     for(int i = 0; i < 4; i++){
-        if((pont[i].getAnterior() == nullptr) && (pont[i].getTipo() == 0)){                
-            pont[i].setAnterior(posicaoAtual);
-            pilha->push(pont[i]);
+        if(array[i].getSituacao() == false && array[i].getTipo() == 0){                
+            array[i].setAnterior(pontAtual);
+            pilha->push(array[i]);
+            array[i].setSituacao();
             empty = false;
         }
     }
-
-    std::cout << "\n" << pilha->size() << "\n";
 
     if(empty == true) {
         pilha->pop();
     }
 
-    delete[] pont;
-
     return posicaoAtual;
 }
 
 void SondasPilha::encontrarCaminho() {
-    //while(estaFinalizado() == false) {
-        //std::cout << "Prepare-se\n";
+    //while(estaFinalizado() == false) {    
+        std::cout << pilha->top()->getLinha(); 
+        std::cout << pilha->top()->getColuna() << "\n"; 
+        passo();     
+        std::cout << pilha->top()->getLinha(); 
+        std::cout << pilha->top()->getColuna() << "\n";
+        passo();     
+        std::cout << pilha->top()->getLinha(); 
+        std::cout << pilha->top()->getColuna() << "\n";
         passo();
-        std::cout << "\n";
+        std::cout << pilha->top()->getLinha(); 
+        std::cout << pilha->top()->getColuna() << "\n";
         passo();
-        std::cout << "\n";
-        passo();
+        //passo();
         //getCaminho();
     //}
 }
@@ -102,7 +103,7 @@ void SondasPilha::getCaminho(){
     Quadrado posicaoAtual = proximoCaminho();
     caminho->push(posicaoAtual);
 
-    while(posicaoAtual.getAnterior()){
+    /*while(posicaoAtual.getAnterior()){
         posicaoAtual = *(posicaoAtual.getAnterior());
         caminho->push(posicaoAtual);
     }
@@ -111,7 +112,7 @@ void SondasPilha::getCaminho(){
         std::cout << "[" << caminho->top()->getLinha() 
         << "," << caminho->top()->getColuna() << "] -> ";
         caminho->pop();
-    }
+    }*/
 
     caminho->clear();
     

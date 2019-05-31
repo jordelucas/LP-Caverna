@@ -6,7 +6,8 @@ class Quadrado{
         int linha_;
         int coluna_;
         int tipo_;
-        Quadrado * anterior_;
+        bool situacao;
+        Quadrado * last_;
 
     public: 
         Quadrado(int linha, int coluna, int tipo);
@@ -14,8 +15,10 @@ class Quadrado{
         int getLinha();
         int getColuna();
         int getTipo();
-        Quadrado* getAnterior();
-        void setAnterior(Quadrado quadrado);
+        Quadrado * getAnterior();
+        bool getSituacao();
+        void setSituacao();
+        void setAnterior(Quadrado * quadrado);
         char toString();
 };
 

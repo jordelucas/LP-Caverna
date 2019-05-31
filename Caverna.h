@@ -19,7 +19,7 @@ public:
     void toString();
     Quadrado getInicio();
     Quadrado getFim();
-    Quadrado* getVizinhos(Quadrado *, Quadrado);
+    void getVizinhos(Quadrado * array, Quadrado * quadAtual);
 
     /*
     void resetar();

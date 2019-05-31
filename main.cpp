@@ -17,13 +17,11 @@ int main(){
     caverna.carregar(arq_in);
     arq_in.close();
     caverna.toString();
+    std::cout << "\n";
 
     SondasPilha pilha(cv);
-    //std::cout << "ois\n\n";
 
     pilha.encontrarCaminho();
-
-    //caverna.~Caverna();
 
     return 0;
 }
