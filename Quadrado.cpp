@@ -2,10 +2,10 @@
 #include <iostream>
 
 Quadrado::Quadrado() 
-: linha_(-1), coluna_(-1), tipo_(-1), last_(nullptr), situacao(false) {}
+: linha_(-1), coluna_(-1), tipo_(-1), last_(nullptr), situacao_(false) {}
 
 Quadrado::Quadrado(int linha, int coluna, int tipo)
-: linha_(linha), coluna_(coluna), tipo_(tipo), last_(nullptr), situacao(false) {}
+: linha_(linha), coluna_(coluna), tipo_(tipo), last_(nullptr), situacao_(false) {}
 
 int Quadrado::getLinha() {
     return linha_;
@@ -28,11 +28,11 @@ void Quadrado::setAnterior(Quadrado * quadrado) {
 }
 
 bool Quadrado::getSituacao() {
-    return situacao;
+    return situacao_;
 }
 
-void Quadrado::setSituacao() {
-    situacao = true;
+void Quadrado::setSituacao(bool situacao) {
+    situacao_ = situacao;
 }
 
 char Quadrado::toString(){

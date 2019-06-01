@@ -8,21 +8,19 @@
 #include "SondasPilha.h"
 
 int main(){
-    Caverna * cv;
-    Caverna caverna;
-
-    cv = &caverna;
+    Caverna *cv = new Caverna();
     std::ifstream arq_in;
     arq_in.open("caverna-1.txt");
-    caverna.carregar(arq_in);
+
+    cv->carregar(arq_in);
+
     arq_in.close();
-    caverna.toString();
+
+    cv->toString();
+    std::cout << "Saga dos vizinhos\n";
     std::cout << "\n";
-
     SondasPilha pilha(cv);
-
     pilha.encontrarCaminho();
-
     return 0;
 }
     //pilha.encontrarCaminho();

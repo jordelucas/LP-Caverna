@@ -19,10 +19,10 @@ public:
     ~SondasPilha();
     void esvaziarCaminhos();
     bool possuiCaminhos();
-    Quadrado proximoCaminho();
+    Quadrado* proximoCaminho();
     bool estaFinalizado();
     void getCaminho();
-    Quadrado passo();
+    Quadrado* passo();
     void encontrarCaminho();
 };
 #endif // !SONDAS_PILHA_H
