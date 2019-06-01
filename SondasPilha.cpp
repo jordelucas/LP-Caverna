@@ -43,19 +43,18 @@ Quadrado* SondasPilha::passo(){
     }
 
     if(pilha->top()->getTipo() == caverna_->getFim()->getTipo()){
-        std::cout << "asdasdas" << std::endl;
         getCaminho();
         return nullptr;
     }
 
     bool empty = true;
-    Quadrado * posicaoAtual = pilha->top();
+    Quadrado * posicaoAtual = proximoCaminho();
 
     for(int i = 0; i < 4; i++){
         Quadrado * vizinho = caverna_->getVizinhos(posicaoAtual, i);
         if (vizinho == nullptr){
         }else if(vizinho->getSituacao() == false && (vizinho->getTipo() == 0 || vizinho->getTipo() == 3)){                
-            //vizinhos[i].setAnterior(&pontAtual);
+            vizinho->setAnterior(posicaoAtual);
             vizinho->setSituacao(true);
             pilha->push(*vizinho);
             std::cout << "add:" << vizinho->getLinha() 
@@ -73,45 +72,32 @@ Quadrado* SondasPilha::passo(){
 }
 
 void SondasPilha::encontrarCaminho() {
-    //caverna_->getInicio()->setSituacao(false);
-   //while(estaFinalizado() == false) {    
-        std::cout << pilha->top()->getLinha(); 
-        std::cout << pilha->top()->getColuna() << "\n"; 
-        passo();     
-        std::cout << pilha->top()->getLinha(); 
-        std::cout << pilha->top()->getColuna() << "\n";
-        passo();     
-        std::cout << pilha->top()->getLinha(); 
-        std::cout << pilha->top()->getColuna() << "\n";
+   while(estaFinalizado() == false) {    
         passo();
-        std::cout << pilha->top()->getLinha(); 
-        std::cout << pilha->top()->getColuna() << "\n";
-        passo();
-        std::cout << pilha->top()->getLinha(); 
-        std::cout << pilha->top()->getColuna() << "\n";
-        passo();
-        //passo();
-        //getCaminho();
-    //}*/
+    }
 }
 
 void SondasPilha::getCaminho(){
-    Stack<Quadrado> * caminho;
+    Stack<Quadrado> * caminho = new Stack<Quadrado>();
+    Quadrado * posicaoAtual = proximoCaminho();
 
-    Quadrado posicaoAtual = *proximoCaminho();
-    caminho->push(posicaoAtual);
+    caminho->push(*posicaoAtual);
 
-    /*while(posicaoAtual.getAnterior()){
-        posicaoAtual = *(posicaoAtual.getAnterior());
-        caminho->push(posicaoAtual);
+    while(posicaoAtual->getAnterior()){
+        posicaoAtual = (posicaoAtual->getAnterior());
+        caminho->push(*posicaoAtual);
     }
 
-    while (caminho->empty() == false) {
-        std::cout << "[" << caminho->top()->getLinha() 
-        << "," << caminho->top()->getColuna() << "] -> ";
+    std::cout << "Caminho:" << std::endl;
+    while (caminho->size() != 1) {
+        std::cout << '[' << caminho->top()->getLinha()
+                  << ',' << caminho->top()->getColuna()
+                  << "]->";
         caminho->pop();
-    }*/
-
-    caminho->clear();
+    }
+    std::cout << '[' << caminho->top()->getLinha()
+                  << ',' << caminho->top()->getColuna()
+                  << ']' << '\n';
+    //caminho->clear();
     
 }
