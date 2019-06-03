@@ -30,11 +30,10 @@ Quadrado* SondasPilha::proximoCaminho(){
 }
 
 bool SondasPilha::estaFinalizado(){
-    if(possuiCaminhos() || proximoCaminho()->getTipo() != caverna_->getFim()->getTipo()) {
-        return false;
-    }else{
+    if(possuiCaminhos() == false || proximoCaminho()->getTipo() == caverna_->getFim()->getTipo()) {
         return true;
     }
+        return false;
 }
 
 Quadrado* SondasPilha::passo(){
@@ -72,9 +71,10 @@ Quadrado* SondasPilha::passo(){
 }
 
 void SondasPilha::encontrarCaminho() {
-   while(estaFinalizado() == false) {    
+   while(!estaFinalizado()) {    
         passo();
     }
+    passo();
 }
 
 void SondasPilha::getCaminho(){
