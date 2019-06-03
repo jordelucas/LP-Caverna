@@ -61,6 +61,11 @@ Quadrado* SondasPilha::passo(){
                          << ' ' << vizinho-> getColuna()
                          << std::endl;
             empty = false;
+
+            if(vizinho->getTipo() == 3) {
+                return pilha->top();
+            }
+            
         }
     }
     std::cout << std::endl;
@@ -110,6 +115,6 @@ void SondasPilha::getCaminho(){
     std::cout << '[' << caminho->top()->getLinha()
                   << ',' << caminho->top()->getColuna()
                   << ']' << '\n';
-    //caminho->clear();
+    caminho->clear();
     
 }
