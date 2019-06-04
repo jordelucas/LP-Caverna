@@ -39,7 +39,7 @@ bool SondasPilha::estaFinalizado(){
 
 Quadrado* SondasPilha::passo(){
     if(possuiCaminhos() == false){
-        std::cout << "Sem saída" << std::endl;
+        getCaminho();
         return nullptr;
     }
 
@@ -62,24 +62,40 @@ Quadrado* SondasPilha::passo(){
                          << ' ' << vizinho-> getColuna()
                          << std::endl;
             empty = false;
+
+            if(vizinho->getTipo() == 3) {
+                return pilha->top();
+            }
+            
         }
     }
     std::cout << std::endl;
+
     if(empty == true) {
-        pilha->pop();
+        if(pilha->size() == 1){
+            pilha->clear();
+        }else{
+            pilha->pop();
+        }
     }
 
     return pilha->top();
 }
 
 void SondasPilha::encontrarCaminho() {
-   while(!estaFinalizado()) {    
+   while(!estaFinalizado()) {   
+        std::cout << "\n" << pilha->size() << "||" << pilha->top()->getLinha() << " " << pilha->top()->getColuna() << "\n";
         passo();
     }
     passo();
 }
 
 void SondasPilha::getCaminho(){
+    if(possuiCaminhos() == false) {
+        std::cout << "O caminho não pôde ser encontrado!\n";
+        return;
+    }
+
     Stack<Quadrado> * caminho = new Stack<Quadrado>();
     Quadrado * posicaoAtual = proximoCaminho();
 
@@ -90,8 +106,8 @@ void SondasPilha::getCaminho(){
         caminho->push(*posicaoAtual);
     }
 
-    std::cout << "Caminho:" << std::endl;
-    while (caminho->size() != 1) {
+    std::cout << std::endl << "Caminho:" << std::endl;
+    while (caminho->top()->getTipo() != 3) {
         std::cout << '[' << caminho->top()->getLinha()
                   << ',' << caminho->top()->getColuna()
                   << "]->";

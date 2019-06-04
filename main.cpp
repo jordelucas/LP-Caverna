@@ -17,10 +17,15 @@ int main(){
     arq_in.close();
 
     cv->toString();
-    std::cout << "Saga dos vizinhos\n";
-    std::cout << "\n";
+
     SondasPilha pilha(cv);
     pilha.encontrarCaminho();
+
+    std::cout << "Inicio: " << cv->getInicio()->getLinha() << " " << cv->getInicio()->getColuna() <<"\n";
+    std::cout << "Fim: " << cv->getFim()->getLinha() << " " << cv->getFim()->getColuna() <<"\n";
+
+    cv->resetar();
+
     return 0;
 }
     //pilha.encontrarCaminho();

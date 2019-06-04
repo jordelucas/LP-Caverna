@@ -17,6 +17,7 @@ public:
     ~Caverna();
     void carregar(std::ifstream &);
     void toString();
+    void resetar();
     Quadrado * getInicio();
     Quadrado * getFim();
     Quadrado * getVizinhos( Quadrado * quadAtual, int op);
