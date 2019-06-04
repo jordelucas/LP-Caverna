@@ -101,7 +101,15 @@ Quadrado * Caverna::getVizinhos( Quadrado * quadrado, int op){
 void Caverna::toString(){
     for (int l = 0; l < qtdLinhas; ++l) {
         for (int c = 0; c < qtdColunas; ++c) {
-            std::cout << caverna_[l][c]->toString();
+            // /std::cout << caverna_[l][c]->getSituacao() << "|";
+            if(caverna_[l][c]->getAnterior() == nullptr) {
+                std::cout << "* *|";
+            }else{
+                std::cout << caverna_[l][c]->getAnterior()->getLinha() 
+                << " " << caverna_[l][c]->getAnterior()->getColuna()
+                << "|";
+            }
+            //std::cout << caverna_[l][c]->toString();
         }
     std::cout << "\n";
     }
