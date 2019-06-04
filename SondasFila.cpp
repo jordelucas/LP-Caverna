@@ -62,12 +62,13 @@ Quadrado* SondasFila::passo(){
             vizinho->setAnterior(posicaoAtual);
             caverna_->toString();    
             std::cout << "\n";        
-            fila->push_back(*(vizinho));
+            fila->push_back(*vizinho);
             caverna_->toString();            
             
             std::cout << "add:" << vizinho->getLinha() 
                          << ' ' << vizinho-> getColuna()
                          << std::endl;
+            vizinho = nullptr;
             /*
             if(vizinho->getTipo() == 3) {
                 return fila->peek();
@@ -81,7 +82,7 @@ Quadrado* SondasFila::passo(){
     if(fila->size() == 1){
         fila->clear();
     }else{
-        fila->peek()->setSituacao(true);
+        posicaoAtual->setSituacao(true);
         proximoCaminho();
     }
 
