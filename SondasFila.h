@@ -2,25 +2,28 @@
 #define SONDAS_FILA_H
 
 #include <iostream>
-#include <string>
 #include <cstdlib>
 
 #include "Quadrado.h"
 #include "Caverna.h"
 #include "Queue.h"
+#include "Stack.h"
 
 class SondasFila
 {
 private:
-    Caverna caverna_;
+    Caverna * caverna_;
+    Queue<Quadrado> * fila;
+
 public:
-    SondasFila(Caverna caverna);
+    SondasFila(Caverna * caverna);
+    ~SondasFila();
     void esvaziarCaminhos();
     bool possuiCaminhos();
-    Quadrado proximoCaminho();
+    Quadrado* proximoCaminho();
     bool estaFinalizado();
-    std::string getCaminho();
-    Quadrado passo();
+    void getCaminho();
+    Quadrado* passo();
+    void encontrarCaminho();
 };
-
-#endif // !SONDAS_FILA_H
+#endif
