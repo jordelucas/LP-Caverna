@@ -105,8 +105,8 @@ void SondasPilha::getCaminho(){
         caminho->push(*posicaoAtual);
     }
 
-    std::cout << "Caminho:" << std::endl;
-    while (caminho->size() != 1) {
+    std::cout << std::endl << "Caminho:" << std::endl;
+    while (caminho->top()->getTipo() != 3) {
         std::cout << '[' << caminho->top()->getLinha()
                   << ',' << caminho->top()->getColuna()
                   << "]->";

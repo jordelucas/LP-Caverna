@@ -10,7 +10,7 @@
 int main(){
     Caverna *cv = new Caverna();
     std::ifstream arq_in;
-    arq_in.open("caverna-5.txt");
+    arq_in.open("caverna-10.txt");
 
     cv->carregar(arq_in);
 
@@ -21,6 +21,9 @@ int main(){
     std::cout << "\n";
     SondasPilha pilha(cv);
     pilha.encontrarCaminho();
+
+    std::cout << "Inicio: " << cv->getInicio()->getLinha() << " " << cv->getInicio()->getColuna() <<"\n";
+    std::cout << "Fim: " << cv->getFim()->getLinha() << " " << cv->getFim()->getColuna() <<"\n";
     return 0;
 }
     //pilha.encontrarCaminho();
