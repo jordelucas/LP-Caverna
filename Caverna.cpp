@@ -3,7 +3,6 @@
 Caverna::Caverna() {}
 
 Caverna::~Caverna() {
-    std::cout << "Caverna" << std::endl;
     for (int l = 0; l < qtdLinhas; ++l) {
         for (int c = 0; c < qtdColunas; ++c) {
             delete caverna_[l][c];

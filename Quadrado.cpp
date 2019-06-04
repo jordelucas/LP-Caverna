@@ -2,10 +2,13 @@
 #include <iostream>
 
 Quadrado::Quadrado() 
-: linha_(-1), coluna_(-1), tipo_(-1), last_(nullptr), situacao_(false) {}
+: linha_(-1), coluna_(-1), tipo_(-1){}
 
 Quadrado::Quadrado(int linha, int coluna, int tipo)
-: linha_(linha), coluna_(coluna), tipo_(tipo), last_(nullptr), situacao_(false) {}
+: linha_(linha), coluna_(coluna), tipo_(tipo) {
+    last_ = nullptr;
+    situacao_ = false;
+}
 
 int Quadrado::getLinha() {
     return linha_;

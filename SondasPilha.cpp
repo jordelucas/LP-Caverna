@@ -8,8 +8,8 @@ SondasPilha::SondasPilha(Caverna* caverna) {
 }
 
 SondasPilha::~SondasPilha(){
-    std::cout << "Sonda" << std::endl;
-    esvaziarCaminhos();
+    pilha->clear();
+    delete pilha;
 }
 
 void SondasPilha::esvaziarCaminhos(){
@@ -19,7 +19,6 @@ void SondasPilha::esvaziarCaminhos(){
     }
     pilha->clear();
     delete pilha;
-    pilha = nullptr;
 }
 
 bool SondasPilha::possuiCaminhos(){
@@ -79,7 +78,7 @@ Quadrado* SondasPilha::passo(){
         }
     }
 
-    return pilha->top();
+    return proximoCaminho();
 }
 
 void SondasPilha::encontrarCaminho() {
@@ -117,5 +116,6 @@ void SondasPilha::getCaminho(){
                   << ',' << caminho->top()->getColuna()
                   << ']' << '\n';
     caminho->clear();
-    
+    delete caminho;
+    caminho = nullptr;
 }

@@ -23,8 +23,8 @@ int main(){
 
     std::cout << "Inicio: " << cv->getInicio()->getLinha() << " " << cv->getInicio()->getColuna() <<"\n";
     std::cout << "Fim: " << cv->getFim()->getLinha() << " " << cv->getFim()->getColuna() <<"\n";
-
-    cv->resetar();
+    
+    delete cv;
 
     return 0;
 }
