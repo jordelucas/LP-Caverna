@@ -10,7 +10,7 @@
 int main(){
     Caverna *cv = new Caverna();
     std::ifstream arq_in;
-    arq_in.open("caverna-2.txt");
+    arq_in.open("caverna-3.txt");
 
     cv->carregar(arq_in);
 

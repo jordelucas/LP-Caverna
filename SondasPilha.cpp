@@ -8,6 +8,7 @@ SondasPilha::SondasPilha(Caverna* caverna) {
 }
 
 SondasPilha::~SondasPilha(){
+    std::cout << "Sonda" << std::endl;
     esvaziarCaminhos();
 }
 
@@ -38,6 +39,7 @@ bool SondasPilha::estaFinalizado(){
 
 Quadrado* SondasPilha::passo(){
     if(possuiCaminhos() == false){
+        std::cout << "Sem saída" << std::endl;
         return nullptr;
     }
 
@@ -98,6 +100,6 @@ void SondasPilha::getCaminho(){
     std::cout << '[' << caminho->top()->getLinha()
                   << ',' << caminho->top()->getColuna()
                   << ']' << '\n';
-    //caminho->clear();
+    caminho->clear();
     
 }
