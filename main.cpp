@@ -6,11 +6,12 @@
 #include "Quadrado.h"
 #include "Caverna.h"
 #include "SondasPilha.h"
+#include "SondasFila.h"
 
 int main(){
     Caverna *cv = new Caverna();
     std::ifstream arq_in;
-    arq_in.open("caverna-3.txt");
+    arq_in.open("caverna-1.txt");
 
     cv->carregar(arq_in);
 
@@ -18,7 +19,7 @@ int main(){
 
     cv->toString();
 
-    SondasPilha pilha(cv);
+    SondasFila pilha(cv);
     pilha.encontrarCaminho();
 
     std::cout << "Inicio: " << cv->getInicio()->getLinha() << " " << cv->getInicio()->getColuna() <<"\n";
