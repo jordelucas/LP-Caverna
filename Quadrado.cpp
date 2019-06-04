@@ -35,6 +35,12 @@ void Quadrado::setSituacao(bool situacao) {
     situacao_ = situacao;
 }
 
+void Quadrado::resetar() {
+    setSituacao(false);
+    setAnterior(nullptr);
+}
+
+
 char Quadrado::toString(){
     switch (getTipo()){
         case 0:

@@ -116,5 +116,4 @@ void SondasPilha::getCaminho(){
                   << ',' << caminho->top()->getColuna()
                   << ']' << '\n';
     caminho->clear();
-    
 }

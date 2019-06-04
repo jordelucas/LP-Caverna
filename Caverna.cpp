@@ -108,8 +108,10 @@ void Caverna::toString(){
     }
 }
 
-/*
 void Caverna::resetar(){
-
+    for (int l = 0; l < qtdLinhas; ++l) {
+        for (int c = 0; c < qtdColunas; ++c) {
+            caverna_[l][c]->resetar();
+        }
+    }    
 }
-*/

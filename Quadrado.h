@@ -19,6 +19,7 @@ class Quadrado{
         bool getSituacao();
         void setSituacao(bool situacao);
         void setAnterior(Quadrado * quadrado);
+        void resetar();
         char toString();
 };
 
