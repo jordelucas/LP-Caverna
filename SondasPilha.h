@@ -12,7 +12,7 @@ class SondasPilha
 {
 private:
     Caverna * caverna_;
-    Stack<Quadrado> * pilha;
+    Stack<Quadrado*> * pilha;
 
 public:
     SondasPilha(Caverna * caverna);

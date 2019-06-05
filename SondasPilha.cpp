@@ -2,7 +2,7 @@
 
 SondasPilha::SondasPilha(Caverna* caverna) {
     caverna_ = caverna;
-    pilha = new Stack<Quadrado>();
+    pilha = new Stack<Quadrado*>();
     
     esvaziarCaminhos();
 }
@@ -14,7 +14,7 @@ SondasPilha::~SondasPilha(){
 
 void SondasPilha::esvaziarCaminhos(){
     if(pilha->empty()){
-        pilha->push(*caverna_->getInicio());
+        pilha->push(caverna_->getInicio());
         return;
     }
     pilha->clear();
@@ -26,7 +26,7 @@ bool SondasPilha::possuiCaminhos(){
 }
 
 Quadrado* SondasPilha::proximoCaminho(){
-    return pilha->top();
+    return *pilha->top();
 }
 
 bool SondasPilha::estaFinalizado(){
@@ -42,7 +42,7 @@ Quadrado* SondasPilha::passo(){
         return nullptr;
     }
 
-    if(pilha->top()->getTipo() == caverna_->getFim()->getTipo()){
+    if((*pilha->top())->getTipo() == caverna_->getFim()->getTipo()){
         getCaminho();
         return nullptr;
     }
@@ -56,14 +56,14 @@ Quadrado* SondasPilha::passo(){
         }else if(vizinho->getSituacao() == false && (vizinho->getTipo() == 0 || vizinho->getTipo() == 3)){                
             vizinho->setAnterior(posicaoAtual);
             vizinho->setSituacao(true);
-            pilha->push(*vizinho);
+            pilha->push(vizinho);
             std::cout << "add:" << vizinho->getLinha() 
                          << ' ' << vizinho-> getColuna()
                          << std::endl;
             empty = false;
 
             if(vizinho->getTipo() == 3) {
-                return pilha->top();
+                return *pilha->top();
             }
             
         }
@@ -83,7 +83,7 @@ Quadrado* SondasPilha::passo(){
 
 void SondasPilha::encontrarCaminho() {
    while(!estaFinalizado()) {   
-        std::cout << "\n" << pilha->size() << "||" << pilha->top()->getLinha() << " " << pilha->top()->getColuna() << "\n";
+        std::cout << "\n" << pilha->size() << "||" << (*pilha->top())->getLinha() << " " << (*pilha->top())->getColuna() << "\n";
         passo();
     }
     passo();
@@ -117,5 +117,4 @@ void SondasPilha::getCaminho(){
                   << ']' << '\n';
     caminho->clear();
     delete caminho;
-    caminho = nullptr;
 }

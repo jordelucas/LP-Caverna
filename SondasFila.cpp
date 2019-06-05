@@ -117,6 +117,4 @@ void SondasFila::getCaminho(){
                   << ']' << '\n';
     caminho->clear();
     delete caminho;
-    
-    caminho = nullptr;
 }

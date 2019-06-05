@@ -11,7 +11,7 @@
 int main(){
     Caverna *cv = new Caverna();
     std::ifstream arq_in;
-    arq_in.open("caverna-1.txt");
+    arq_in.open("caverna-8.txt");
 
     cv->carregar(arq_in);
 
@@ -19,7 +19,7 @@ int main(){
 
     cv->toString();
 
-    SondasFila pilha(cv);
+    SondasPilha pilha(cv);
     pilha.encontrarCaminho();
 
     std::cout << "Inicio: " << cv->getInicio()->getLinha() << " " << cv->getInicio()->getColuna() <<"\n";
