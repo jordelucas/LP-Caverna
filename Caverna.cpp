@@ -109,7 +109,7 @@ void Caverna::toString(){
                 << " " << caverna_[l][c]->getAnterior()->getColuna()
                 << "|";
             }
-            //std::cout << caverna_[l][c]->toString();
+            //std::cout << caverna_[l][c]->getSituacao();
         }
     std::cout << "\n";
     }

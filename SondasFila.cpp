@@ -2,35 +2,31 @@
 
 SondasFila::SondasFila(Caverna* caverna) {
     caverna_ = caverna;
-    fila = new Queue<Quadrado>();
+    fila_ = new Queue<Quadrado*>();
     
     esvaziarCaminhos();
 }
 
 SondasFila::~SondasFila(){
-    fila->clear();
-    delete fila;
+    fila_->clear();
+    delete fila_;
 }
 
 void SondasFila::esvaziarCaminhos(){
-    if(fila->empty()){
-        fila->push_back(*caverna_->getInicio());
+    if(fila_->empty()){
+        fila_->push_back(caverna_->getInicio());
         return;
     }
-    fila->clear();
-    delete fila;
+    fila_->clear();
+    delete fila_;
 }
 
 bool SondasFila::possuiCaminhos(){
-    return !fila->empty();
+    return !fila_->empty();
 }
 
 Quadrado* SondasFila::proximoCaminho(){
-    //while (fila->peek()->getSituacao() == true) {
-    //    fila->pop_front();
-    //}
-
-    return fila->peek();
+    return *fila_->peek();
 }
 
 bool SondasFila::estaFinalizado(){
@@ -46,56 +42,59 @@ Quadrado* SondasFila::passo(){
         return nullptr;
     }
 
-    if(fila->peek()->getTipo() == caverna_->getFim()->getTipo()){
+    if((*fila_->peek())->getTipo() == caverna_->getFim()->getTipo()){
         getCaminho();
         return nullptr;
     }
 
+    bool empty = true;
     Quadrado * posicaoAtual = proximoCaminho();
 
     for(int i = 0; i < 4; i++){
         Quadrado * vizinho = caverna_->getVizinhos(posicaoAtual, i);
+
         if (vizinho == nullptr){
-        }else if(vizinho->getAnterior() == nullptr && (vizinho->getTipo() == 0 || vizinho->getTipo() == 3)){  
-            //std::cout << "--" << posicaoAtual->getLinha() << " " << posicaoAtual->getColuna() << "---\n";                                        
-            
+        }else if(vizinho->getSituacao() == false && (vizinho->getTipo() == 0 || vizinho->getTipo() == 3)){                
             vizinho->setAnterior(posicaoAtual);
-            caverna_->toString();    
-            std::cout << "\n";        
-            fila->push_back(*vizinho);
-            caverna_->toString();            
-            
+            vizinho->setSituacao(true);
+            //caverna_->toString();
+            std::cout << "\n";
+            fila_->push_back(vizinho);
+            //caverna_->toString();
             std::cout << "add:" << vizinho->getLinha() 
                          << ' ' << vizinho-> getColuna()
                          << std::endl;
-            vizinho = nullptr;
-            /*
-            if(vizinho->getTipo() == 3) {
-                return fila->peek();
+            empty = false;
+
+            /*if(vizinho->getTipo() == 3) {
+                return pilha->top();
             }*/
-            //caverna_->toString();
             
         }
     }
+
     std::cout << std::endl;
 
-    if(fila->size() == 1){
-        fila->clear();
-    }else{
-        //posicaoAtual->setSituacao(true);
-        proximoCaminho();
-    }
+    //if(empty == true) {
+        if(fila_->size() == 1){
 
-    //posicaoAtual = nullptr;
+            fila_->clear();
+        }else{
 
-    return fila->peek();
+            fila_->pop_front();
+        }
+    //}
+
+    return *fila_->peek();
 }
 
 void SondasFila::encontrarCaminho() {
     while(!estaFinalizado()) {   
-        std::cout << "\n" << fila->size() << "||" << fila->peek()->getLinha() << " " << fila->peek()->getColuna() << "\n";
+        std::cout << "\n" << fila_->size() << "||" << (*fila_->peek())->getLinha() << " " << (*fila_->peek())->getColuna() << "\n";
         passo();
+
     }
+
     passo();
 }
 
@@ -109,16 +108,8 @@ void SondasFila::getCaminho(){
     Quadrado * posicaoAtual = proximoCaminho();
 
     caminho->push(*posicaoAtual);
-
-//    while(posicaoAtual->getAnterior()){
- //       std::cout << posicaoAtual->getTipo();
-   //     posicaoAtual = (posicaoAtual->getAnterior());
-     //   caminho->push(*posicaoAtual);
-    //}
-
-    //std::cout << posicaoAtual->getAnterior()->getLinha() << " " << posicaoAtual->getAnterior()->getColuna() << "\n";
-
-    /*while(posicaoAtual->getAnterior()){
+    
+    while(posicaoAtual->getAnterior()){
         posicaoAtual = (posicaoAtual->getAnterior());
         caminho->push(*posicaoAtual);
     }
@@ -132,6 +123,9 @@ void SondasFila::getCaminho(){
     }
     std::cout << '[' << caminho->top()->getLinha()
                   << ',' << caminho->top()->getColuna()
-                  << ']' << '\n';*/
+                  << ']' << '\n';
     caminho->clear();
+    delete caminho;
+    
+    caminho = nullptr;
 }

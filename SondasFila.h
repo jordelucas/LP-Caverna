@@ -13,7 +13,7 @@ class SondasFila
 {
 private:
     Caverna * caverna_;
-    Queue<Quadrado> * fila;
+    Queue<Quadrado*> * fila_;
 
 public:
     SondasFila(Caverna * caverna);

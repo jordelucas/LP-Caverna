@@ -41,7 +41,7 @@ public:
 }; 
 
 template<typename Item>
-Node<Item>::Node(){}
+Node<Item>::Node() : next(nullptr), prev(nullptr) {}
 
 template<typename Item>
 DoubleLinkedList<Item>::DoubleLinkedList() : head_(nullptr), last_(nullptr) {
