@@ -8,7 +8,8 @@ SondasFila::SondasFila(Caverna* caverna) {
 }
 
 SondasFila::~SondasFila(){
-    esvaziarCaminhos();
+    fila->clear();
+    delete fila;
 }
 
 void SondasFila::esvaziarCaminhos(){
@@ -18,7 +19,6 @@ void SondasFila::esvaziarCaminhos(){
     }
     fila->clear();
     delete fila;
-    fila = nullptr;
 }
 
 bool SondasFila::possuiCaminhos(){
@@ -26,9 +26,9 @@ bool SondasFila::possuiCaminhos(){
 }
 
 Quadrado* SondasFila::proximoCaminho(){
-    while (fila->peek()->getSituacao() == true) {
-        fila->pop_front();
-    }
+    //while (fila->peek()->getSituacao() == true) {
+    //    fila->pop_front();
+    //}
 
     return fila->peek();
 }
@@ -82,7 +82,7 @@ Quadrado* SondasFila::passo(){
     if(fila->size() == 1){
         fila->clear();
     }else{
-        posicaoAtual->setSituacao(true);
+        //posicaoAtual->setSituacao(true);
         proximoCaminho();
     }
 

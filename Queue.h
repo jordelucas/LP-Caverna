@@ -39,7 +39,7 @@ bool Queue<T>::empty(){
 
 template<typename T>
 void Queue<T>::push_back(T element){
-    data.push_back(element);
+    data.push_front(element);
 }
 
 template<typename T>
@@ -48,7 +48,7 @@ void Queue<T>::pop_front(){
     {
         return;
     }
-    data.pop_front();
+    data.pop_back();
 }
 
 template<typename T>
@@ -57,7 +57,7 @@ T* Queue<T>::peek(){
     {
         return nullptr;
     }
-    return data.front();
+    return data.back();
 }
 
 template<typename T>
