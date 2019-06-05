@@ -57,33 +57,24 @@ Quadrado* SondasFila::passo(){
         }else if(vizinho->getSituacao() == false && (vizinho->getTipo() == 0 || vizinho->getTipo() == 3)){                
             vizinho->setAnterior(posicaoAtual);
             vizinho->setSituacao(true);
-            //caverna_->toString();
             std::cout << "\n";
             fila_->push_back(vizinho);
-            //caverna_->toString();
             std::cout << "add:" << vizinho->getLinha() 
                          << ' ' << vizinho-> getColuna()
                          << std::endl;
             empty = false;
-
-            /*if(vizinho->getTipo() == 3) {
-                return pilha->top();
-            }*/
-            
         }
     }
 
     std::cout << std::endl;
 
-    //if(empty == true) {
-        if(fila_->size() == 1){
+    if(fila_->size() == 1){
+        fila_->clear();
+        return nullptr;
+    }else{
 
-            fila_->clear();
-        }else{
-
-            fila_->pop_front();
-        }
-    //}
+        fila_->pop_front();
+    }
 
     return *fila_->peek();
 }

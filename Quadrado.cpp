@@ -47,7 +47,7 @@ void Quadrado::resetar() {
 char Quadrado::toString(){
     switch (getTipo()){
         case 0:
-            return '-';
+            return '_';
             break;
 
         case 1:
