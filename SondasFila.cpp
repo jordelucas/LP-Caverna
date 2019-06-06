@@ -47,7 +47,6 @@ Quadrado* SondasFila::passo(){
         return nullptr;
     }
 
-    bool empty = true;
     Quadrado * posicaoAtual = proximoCaminho();
 
     for(int i = 0; i < 4; i++){
@@ -58,7 +57,6 @@ Quadrado* SondasFila::passo(){
             vizinho->setAnterior(posicaoAtual);
             vizinho->setSituacao(true);
             fila_->push_back(vizinho);
-            empty = false;
         }
     }
 
@@ -84,9 +82,10 @@ void SondasFila::encontrarCaminho() {
 
 void SondasFila::getCaminho(){
     std::ofstream arq_out("saida.txt", std::ofstream::app);
+    arq_out << "Sonda Fila\n";
     if (!arq_out.fail()){
         if(possuiCaminhos() == false) {
-            arq_out << "O caminho não pôde ser encontrado!\n";
+            arq_out << "O caminho não pôde ser encontrado!\n\n";
             return;
         }
 
@@ -100,7 +99,7 @@ void SondasFila::getCaminho(){
             caminho->push(*posicaoAtual);
         }
 
-        arq_out << std::endl << "Caminho:" << std::endl;
+        arq_out << "Caminho:" << std::endl;
         while (caminho->top()->getTipo() != 3) {
             arq_out << '[' << caminho->top()->getLinha()
                     << ',' << caminho->top()->getColuna()
@@ -109,7 +108,7 @@ void SondasFila::getCaminho(){
         }
         arq_out << '[' << caminho->top()->getLinha()
                 << ',' << caminho->top()->getColuna()
-                << ']' << '\n';
+                << ']' << '\n' << '\n';
         caminho->clear();
         delete caminho;
     }else{
@@ -117,5 +116,4 @@ void SondasFila::getCaminho(){
     }
 
     arq_out.close();
-    
 }

@@ -85,31 +85,38 @@ void SondasPilha::encontrarCaminho() {
 }
 
 void SondasPilha::getCaminho(){
-    if(possuiCaminhos() == false) {
-        std::cout << "O caminho não pôde ser encontrado!\n";
-        return;
-    }
+    std::ofstream arq_out("saida.txt", std::ofstream::app);
+    arq_out << "Sonda Pilha\n";
+    if (!arq_out.fail()){
+        if(possuiCaminhos() == false) {
+            arq_out << "O caminho não pôde ser encontrado!\n\n";
+            return;
+        }
 
-    Stack<Quadrado> * caminho = new Stack<Quadrado>();
-    Quadrado * posicaoAtual = proximoCaminho();
+        Stack<Quadrado> * caminho = new Stack<Quadrado>();
+        Quadrado * posicaoAtual = proximoCaminho();
 
-    caminho->push(*posicaoAtual);
-
-    while(posicaoAtual->getAnterior()){
-        posicaoAtual = (posicaoAtual->getAnterior());
         caminho->push(*posicaoAtual);
-    }
 
-    std::cout << std::endl << "Caminho:" << std::endl;
-    while (caminho->top()->getTipo() != 3) {
-        std::cout << '[' << caminho->top()->getLinha()
+        while(posicaoAtual->getAnterior()){
+            posicaoAtual = (posicaoAtual->getAnterior());
+            caminho->push(*posicaoAtual);
+        }
+
+        arq_out << "Caminho:" << std::endl;
+        while (caminho->top()->getTipo() != 3) {
+            arq_out << '[' << caminho->top()->getLinha()
+                    << ',' << caminho->top()->getColuna()
+                    << "]->";
+            caminho->pop();
+        }
+        arq_out << '[' << caminho->top()->getLinha()
                   << ',' << caminho->top()->getColuna()
-                  << "]->";
-        caminho->pop();
+                  << ']' << '\n' << '\n';
+        caminho->clear();
+        delete caminho;
+    }else{
+        std::cout << "Erro!" << std::endl;
     }
-    std::cout << '[' << caminho->top()->getLinha()
-                  << ',' << caminho->top()->getColuna()
-                  << ']' << '\n';
-    caminho->clear();
-    delete caminho;
+    arq_out.close();
 }
