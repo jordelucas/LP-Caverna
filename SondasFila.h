@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <fstream>
 
 #include "Quadrado.h"
 #include "Caverna.h"

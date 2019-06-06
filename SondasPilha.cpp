@@ -57,9 +57,6 @@ Quadrado* SondasPilha::passo(){
             vizinho->setAnterior(posicaoAtual);
             vizinho->setSituacao(true);
             pilha->push(vizinho);
-            std::cout << "add:" << vizinho->getLinha() 
-                         << ' ' << vizinho-> getColuna()
-                         << std::endl;
             empty = false;
 
             if(vizinho->getTipo() == 3) {
@@ -68,7 +65,6 @@ Quadrado* SondasPilha::passo(){
             
         }
     }
-    std::cout << std::endl;
 
     if(empty == true) {
         if(pilha->size() == 1){
@@ -83,7 +79,6 @@ Quadrado* SondasPilha::passo(){
 
 void SondasPilha::encontrarCaminho() {
    while(!estaFinalizado()) {   
-        std::cout << "\n" << pilha->size() << "||" << (*pilha->top())->getLinha() << " " << (*pilha->top())->getColuna() << "\n";
         passo();
     }
     passo();
