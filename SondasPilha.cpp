@@ -68,6 +68,7 @@ Quadrado* SondasPilha::passo(){
     if(empty == true) {
         if(pilha->size() == 1){
             pilha->clear();
+            return nullptr;
         }else{
             pilha->pop();
         }
@@ -87,6 +88,7 @@ void SondasPilha::getCaminho(){
     std::ofstream arq_out("saida.txt", std::ofstream::app);
     if (!arq_out.fail()){
         if(possuiCaminhos() == false) {
+            arq_out << "Pilha:" << std::endl;
             arq_out << "O caminho não pôde ser encontrado!\n\n";
             return;
         }
