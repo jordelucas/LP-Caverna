@@ -82,7 +82,6 @@ void SondasFila::encontrarCaminho() {
 
 void SondasFila::getCaminho(){
     std::ofstream arq_out("saida.txt", std::ofstream::app);
-    arq_out << "Sonda Fila\n";
     if (!arq_out.fail()){
         if(possuiCaminhos() == false) {
             arq_out << "O caminho não pôde ser encontrado!\n\n";
@@ -99,7 +98,7 @@ void SondasFila::getCaminho(){
             caminho->push(*posicaoAtual);
         }
 
-        arq_out << "Caminho:" << std::endl;
+        arq_out << "Fila:" << std::endl;
         while (caminho->top()->getTipo() != 3) {
             arq_out << '[' << caminho->top()->getLinha()
                     << ',' << caminho->top()->getColuna()

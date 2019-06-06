@@ -21,6 +21,9 @@ private:
 
 public:
     DoubleLinkedList();
+    ~DoubleLinkedList() {
+        clear();
+    }
 
     void push_back(Item item);
     void push_front(Item item);
@@ -122,8 +125,7 @@ void DoubleLinkedList<Item>::clear(){
     }
 
     delete head_;
-    head_ = nullptr;
-    last_ = nullptr;
+    delete last_;
     
 }
 

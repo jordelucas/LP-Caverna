@@ -18,7 +18,6 @@ void SondasPilha::esvaziarCaminhos(){
         return;
     }
     pilha->clear();
-    delete pilha;
 }
 
 bool SondasPilha::possuiCaminhos(){
@@ -86,7 +85,6 @@ void SondasPilha::encontrarCaminho() {
 
 void SondasPilha::getCaminho(){
     std::ofstream arq_out("saida.txt", std::ofstream::app);
-    arq_out << "Sonda Pilha\n";
     if (!arq_out.fail()){
         if(possuiCaminhos() == false) {
             arq_out << "O caminho não pôde ser encontrado!\n\n";
@@ -103,20 +101,23 @@ void SondasPilha::getCaminho(){
             caminho->push(*posicaoAtual);
         }
 
-        arq_out << "Caminho:" << std::endl;
+        arq_out << "Pilha:" << std::endl;
         while (caminho->top()->getTipo() != 3) {
             arq_out << '[' << caminho->top()->getLinha()
                     << ',' << caminho->top()->getColuna()
                     << "]->";
             caminho->pop();
         }
+
         arq_out << '[' << caminho->top()->getLinha()
                   << ',' << caminho->top()->getColuna()
                   << ']' << '\n' << '\n';
+
         caminho->clear();
         delete caminho;
     }else{
         std::cout << "Erro!" << std::endl;
     }
+
     arq_out.close();
 }
