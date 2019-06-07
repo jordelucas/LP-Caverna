@@ -121,7 +121,8 @@ void DoubleLinkedList<Item>::clear(){
     }
 
     delete head_;
-    
+    head_ = nullptr;
+    last_ = nullptr;
 }
 
 template<typename Item>
